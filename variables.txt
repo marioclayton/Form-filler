@@ -1,0 +1,43 @@
+appName = appNameG
+appAddress = appAddressG
+appCity = appCityG
+appState = appStateG
+appZip = appZipG
+appPhone = appPhoneG
+appSecPh = appSecPhG
+appEmail = appEmailG
+
+a125Eff = 
+a125Sections ------
+a125Type = 
+
+
+a125LocStreet = 
+a125LocCity = 
+a125LocState = 
+a125LocZip = 
+a125LocFullTime = 
+a125LocPartTime = 
+a125LocRevenue = 
+a125LocOccArea = 
+a125LocPubArea = 
+a125LocTotArea = 
+a125LocCityLimits = 
+a125LocInterest = 
+a125LocLeased = 
+
+a125NattureOfBusiness = 
+
+a125CarCarrier = 
+a125CarEff = 
+a125CarExp = 
+a125CarType = 
+
+a125LossNum1 = 
+a125LossDate1 = 
+a125LossType1 = 
+a125LossAmount1 = 
+a125LossNum2 = 
+a125LossDate2 = 
+a125LossType2 = 
+a125LossAmount2 = 
