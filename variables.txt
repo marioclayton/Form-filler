@@ -41,3 +41,14 @@ a125LossNum2 =
 a125LossDate2 = 
 a125LossType2 = 
 a125LossAmount2 = 
+
+
+
+'appName': appName,
+'appAddress': appAddress,
+'appCity': appCity,
+'appState': appState,
+'appZip': appZip,
+'appPhone': appPhone,
+'appSecPh': appSecPh,
+'appEmail': appEmail,

@@ -1,6 +1,11 @@
 from tkinter import *
 from tkinter import ttk
 import pickle
+from tkinter import filedialog
+import pdfrw
+import os
+from reportlab.pdfgen import canvas
+import datetime
 
 window = Tk()
 window.title('Waterhouse Form Filler')
@@ -220,20 +225,114 @@ losses.grid(column = 2, row = 2, padx = 30, pady = 30)
 
 #-----------------------BUTTONS------------------------------------------------------
 
+#-----------------------SAVE---------------------------------------------------------
+
+
 def saveEntries():
-	#entries = {'Name': appName.get()
-	#	'Address': appNameAddress.get()}
+	entriesDic = {}
+
 	appNameG = appName.get()
-	saveFileName = appNameG + '.txt'
-	file = open(saveFileName, "w")
-	file.write(saveFileName)
-	file.close()
+	appAddressG = appAddress.get()
+	appCityG = appCity.get()
+	appStateG = appState.get()
+	appZipG = appZip.get()
+	appPhoneG = appPhone.get()
+	appSecPhG = appSecPh.get()
+	appEmailG = appEmail.get()
+
+	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 'appSecPhG', 'appEmailG']:
+		entriesDic[variable] = eval(variable)
+
+
+	saveFileName = 'Clients/' + appNameG + '.dat'
+	with open(saveFileName, 'wb') as file:
+		pickle.dump(entriesDic, file)
+
+
+#-----------------------LOAD---------------------------------------------------------
+
+def loadEntries():
+	saveFileName = filedialog.askopenfilename(initialdir='Clients', title='Open File', filetypes=(('DAT Files', '*.dat'),('All Files', '*.*')))
+	with open(saveFileName, 'rb') as file:
+		entriesDic = pickle.load(file)
+
+	appName.delete(0, 'end')
+	appName.insert(0, entriesDic['appNameG'])
+	appAddress.delete(0, 'end')
+	appAddress.insert(0, entriesDic['appAddressG'])
+	appCity.delete(0, 'end')
+	appCity.insert(0, entriesDic['appCityG'])
+	appState.delete(0, 'end')
+	appState.insert(0, entriesDic['appStateG'])
+	appZip.delete(0, 'end')
+	appZip.insert(0, entriesDic['appZipG'])
+	appPhone.delete(0, 'end')
+	appPhone.insert(0, entriesDic['appPhoneG'])
+	appSecPh.delete(0, 'end')
+	appSecPh.insert(0, entriesDic['appSecPhG'])
+	appEmail.delete(0, 'end')
+	appEmail.insert(0, entriesDic['appEmailG'])
+
+
+#-----------------------GENERATE-----------------------------------------------------
+
+def generateForms():
+
+	def create_overlay():
+		appNameG = appName.get()
+		appAddressG = appAddress.get()
+		appCityG = appCity.get()
+		appStateG = appState.get()
+		appZipG = appZip.get()
+		appPhoneG = appPhone.get()
+		appSecPhG = appSecPh.get()
+		appEmailG = appEmail.get()
+
+		c = canvas.Canvas('Forms/simple_form_overlay.pdf')
+
+
+		c.drawString(313, 684, appNameG)
+		c.drawString(313, 684, appAddressG)
+		c.drawString(313, 684, appCityG)
+		c.drawString(313, 684, appStateG)
+		c.drawString(313, 684, appZipG)
+		c.drawString(313, 684, appPhoneG)
+		c.drawString(313, 684, appSecPhG)
+		c.drawString(313, 684, appEmailG)
+
+		c.save()
+
+	def merge_pdfs(form_pdf, overlay_pdf, output):
+	    """
+	    Merge the specified fillable form PDF with the 
+	    overlay PDF and save the output
+	    """
+	    form = pdfrw.PdfReader(form_pdf)
+	    olay = pdfrw.PdfReader(overlay_pdf)
+	    
+	    for form_page, overlay_page in zip(form.pages, olay.pages):
+	        merge_obj = pdfrw.PageMerge()
+	        overlay = merge_obj.add(overlay_page)[0]
+	        pdfrw.PageMerge(form_page).add(overlay).render()
+	        
+	    writer = pdfrw.PdfWriter()
+	    writer.write(output, form)
+	    
+	    
+	if __name__ == '__main__':
+	    create_overlay()
+	    merge_pdfs('Forms/acord-125p.pdf', 
+	               'Forms/simple_form_overlay.pdf', 
+	               'merged_form.pdf')
+
+	os.remove('Forms/simple_form_overlay.pdf')
 
 
 buttons = ttk.Frame(window)
 
 save = Button(buttons, text = 'Save', width=10, command = saveEntries).grid(column = 0, row = 0)
-generate = Button(buttons, text = 'Generate', width=10).grid(column = 1, row = 0)
+load = Button(buttons, text = 'Load', width=10, command = loadEntries).grid(column = 1, row = 0)
+generate = Button(buttons, text = 'Generate', width=10, command = generateForms).grid(column = 2, row = 0)
 
 buttons.pack(expand = 1, fill ="both", padx = 30, pady = 5)
 
