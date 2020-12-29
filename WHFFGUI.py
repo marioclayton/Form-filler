@@ -87,6 +87,7 @@ busTypeList = {"CORPORATION" : "1",
           		"PARTNERSHIP" : "6",
           		"SUBCHAPTER" : "7",
           		"TRUST" : "8"} 
+
 v = StringVar(busType, "1")
 for (text, value) in busTypeList.items():
 	Radiobutton(busType, text = text, variable = v, value = value).grid(column = 1, sticky=W)
@@ -239,8 +240,12 @@ def saveEntries():
 	appPhoneG = appPhone.get()
 	appSecPhG = appSecPh.get()
 	appEmailG = appEmail.get()
+	
+	a125EffG = a125Eff.get()
+	sectionsG = sections.curselection()
+	a125TypeG = a125Type.get()
 
-	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 'appSecPhG', 'appEmailG']:
+	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 'appSecPhG', 'appEmailG', 'a125EffG', 'sectionsG', 'a125TypeG']:
 		entriesDic[variable] = eval(variable)
 
 
@@ -272,6 +277,12 @@ def loadEntries():
 	appSecPh.insert(0, entriesDic['appSecPhG'])
 	appEmail.delete(0, 'end')
 	appEmail.insert(0, entriesDic['appEmailG'])
+	a125Eff.delete(0, 'end')
+	a125Eff.insert(0, entriesDic['a125EffG'])
+	sections.selection_clear(0, 19)
+	for variable in entriesDic['sectionsG']:
+		sections.selection_set(variable)
+	a125Type.set(entriesDic['a125TypeG'])
 
 
 #-----------------------GENERATE-----------------------------------------------------
