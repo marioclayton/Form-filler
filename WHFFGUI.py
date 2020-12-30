@@ -26,8 +26,10 @@ tabControl.add(Acc125, text ='Accord 125')
 tabControl.pack(expand = 1, fill ="both", padx = 30, pady = 30) 
 
   
-
+#---------------------------------------------------------------------------------
 #-----------------------INFO------------------------------------------------------
+#---------------------------------------------------------------------------------
+
 #  -Named Insured
 ttk.Label(ApplicantInfo, text ="Applicant").grid(column = 0, row = 0, padx = 30, pady = 20) 
 appName = ttk.Entry(ApplicantInfo, width = 50)
@@ -63,7 +65,14 @@ ttk.Label(ApplicantInfo, text = 'Email').grid(column = 0, row = 8, padx = 30, pa
 appEmail = ttk.Entry(ApplicantInfo, width = 50)
 appEmail.grid(column = 1, row = 8, padx = 30, pady = 5) 
 
-#-----------------------ACCORD 125------------------------------------------------------
+
+
+
+
+#---------------------------------------------------------------------------------
+#-----------------------ACCORD 125------------------------------------------------
+#---------------------------------------------------------------------------------
+
 
 ttk.Label(Acc125, text ="Effective date").grid(column = 0, row = 0, padx = 30, pady = 10) 
 a125Eff = ttk.Entry(Acc125, width = 10)
@@ -111,7 +120,8 @@ tabControl1.grid(column = 2, row = 0, padx = 30, pady = 30, rowspan=2)
 def locations(Loc1):
 
 	ttk.Label(Loc1, text ="Street").grid(column = 0, row = 0, padx = 5, pady = 5) 
-	ttk.Entry(Loc1).grid(column = 1, row = 0, padx = 5, pady = 5) 
+	a125locStreet = ttk.Entry(Loc1)
+	a125locStreet.grid(column = 1, row = 0, padx = 5, pady = 5) 
 	ttk.Label(Loc1, text ="City").grid(column = 0, row = 1, padx = 5, pady = 5) 
 	ttk.Entry(Loc1).grid(column = 1, row = 1, padx = 5, pady = 5) 
 
@@ -152,10 +162,14 @@ def locations(Loc1):
 	leasedMenu = OptionMenu(Loc1, clicked2, *leased)
 	leasedMenu.grid(column = 1, row = 6, padx = 5, pady = 5, sticky=W)
 
-locations(Loc11)
-locations(Loc12)
-locations(Loc13)
-locations(Loc14)
+
+
+	
+
+a125Location1 = locations(Loc11)
+a125Location2 = locations(Loc12)
+a125Location3 = locations(Loc13)
+a125Location4 = locations(Loc14)
 
 
 natureOfBiz = ttk.Frame(Acc125)
@@ -224,7 +238,11 @@ losses.grid(column = 2, row = 2, padx = 30, pady = 30)
 
 
 
-#-----------------------BUTTONS------------------------------------------------------
+#---------------------------------------------------------------------------------
+#-----------------------BUTTONS---------------------------------------------------
+#---------------------------------------------------------------------------------
+
+
 
 #-----------------------SAVE---------------------------------------------------------
 
@@ -245,7 +263,13 @@ def saveEntries():
 	sectionsG = sections.curselection()
 	a125TypeG = a125Type.get()
 
-	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 'appSecPhG', 'appEmailG', 'a125EffG', 'sectionsG', 'a125TypeG']:
+	a125Location1streetG = a125Location1.a125locStreet.get()
+	a125Location2G = a125Location2.a125locStreet.get()
+	a125Location3G = a125Location3.a125locStreet.get()
+	a125Location4G = a125Location4.a125locStreet.get()
+
+	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 
+	'appSecPhG', 'appEmailG', 'a125EffG', 'sectionsG', 'a125TypeG', 'a125Location1streetG']:
 		entriesDic[variable] = eval(variable)
 
 
@@ -283,6 +307,8 @@ def loadEntries():
 	for variable in entriesDic['sectionsG']:
 		sections.selection_set(variable)
 	a125Type.set(entriesDic['a125TypeG'])
+	a125Location1.a125locStreet.delete(0, 'end')
+	a125Location1.a125locStreet.insert(0, entriesDic['a125Location1streetG'])
 
 
 #-----------------------GENERATE-----------------------------------------------------
