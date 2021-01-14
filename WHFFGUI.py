@@ -19,12 +19,14 @@ tabControl = ttk.Notebook(window)
 ApplicantInfo = ttk.Frame(tabControl)
 Acc125 = ttk.Frame(tabControl)
 Acc126 = ttk.Frame(tabControl)
+Acc140 = ttk.Frame(tabControl)
 
 
   
 tabControl.add(ApplicantInfo, text ='Applicant')
 tabControl.add(Acc125, text ='Accord 125')
 tabControl.add(Acc126, text ='Accord 126')
+tabControl.add(Acc140, text ='Accord 140')
 tabControl.pack(expand = 1, fill ="both", padx = 30, pady = 30) 
 
   
@@ -86,7 +88,7 @@ A126GenAggList = {"50,000" : "1",
 v1 = StringVar(A126GenAgg, "6")
 for (text, value) in A126GenAggList.items():
 	Radiobutton(A126GenAgg, text = text, variable = v1, value = value).grid(column = 1, sticky=W)
-A126GenAgg = v1
+A126GenAggV = v1
 
 tabControl4 = ttk.Notebook(Acc126)
 Class11 = ttk.Frame(tabControl4, width=400, height=800)
@@ -139,12 +141,14 @@ Contractors = ttk.Frame(tabControl3, width=400, height=400)
 Products = ttk.Frame(tabControl3, width=400, height=400)
 ClaimsMade = ttk.Frame(tabControl3, width=400, height=400)
 General = ttk.Frame(tabControl3, width=400, height=400)
+GeneralCont = ttk.Frame(tabControl3, width=400, height=400)
 
 
 tabControl3.add(Contractors, text ='Contractors')
 tabControl3.add(Products, text ='Products')
 tabControl3.add(ClaimsMade, text ='Claims Made')
 tabControl3.add(General, text ='General')
+tabControl3.add(GeneralCont, text ='General Continued')
 
 
 
@@ -153,61 +157,482 @@ tabControl3.grid(column = 2, row = 0, pady = 0, padx = 30, rowspan = 7)
 Questions = ttk.Frame(Contractors)
 Questions.grid(column = 0, row = 0, pady = 0, padx = 30)
 
-ttk.Label(Questions, text ="This is question number 1?").grid(column = 0, row = 0, pady = 5) 
+ttk.Label(Questions, text ="Does applicant draw plans, designs, or specifications for others?").grid(column = 0, row = 0, pady = 5) 
 a126q1 =['Yes', 'No']
 a126q1Clk = StringVar()
 a126q1Clk.set(a126q1[1])
 a126q1Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
 a126q1Mn.grid(column = 1, row = 0, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 2?").grid(column = 0, row = 1, pady = 5) 
+ttk.Label(Questions, text ="Do any operations include blasting or utilize or store explosive material?").grid(column = 0, row = 1, pady = 5) 
 a126q2 =['Yes', 'No']
 a126q2Clk = StringVar()
 a126q2Clk.set(a126q1[1])
-a126q2Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
+a126q2Mn = OptionMenu(Questions, a126q2Clk, *a126q2)
 a126q2Mn.grid(column = 1, row = 1, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 3?").grid(column = 0, row = 2, pady = 5) 
+ttk.Label(Questions, text ="Do any operations include excavation, tunneling, underground work or earth moving?").grid(column = 0, row = 2, pady = 5) 
 a126q3 =['Yes', 'No']
 a126q3Clk = StringVar()
-a126q3Clk.set(a126q1[1])
-a126q3Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
+a126q3Clk.set(a126q3[1])
+a126q3Mn = OptionMenu(Questions, a126q3Clk, *a126q3)
 a126q3Mn.grid(column = 1, row = 2, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 4?").grid(column = 0, row = 3, pady = 5) 
+ttk.Label(Questions, text ="Do your subcontractors carry coverages or limits less than yours?").grid(column = 0, row = 3, pady = 5) 
 a126q4 =['Yes', 'No']
 a126q4Clk = StringVar()
-a126q4Clk.set(a126q1[1])
-a126q4Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
+a126q4Clk.set(a126q4[1])
+a126q4Mn = OptionMenu(Questions, a126q4Clk, *a126q4)
 a126q4Mn.grid(column = 1, row = 3, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 5?").grid(column = 0, row = 4, pady = 5) 
+ttk.Label(Questions, text ="Are subcontractors allowed to work without providing you with Certificates of Insurance?").grid(column = 0, row = 4, pady = 5) 
 a126q5 =['Yes', 'No']
 a126q5Clk = StringVar()
-a126q5Clk.set(a126q1[1])
-a126q5Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
+a126q5Clk.set(a126q5[1])
+a126q5Mn = OptionMenu(Questions, a126q5Clk, *a126q5)
 a126q5Mn.grid(column = 1, row = 4, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 6?").grid(column = 0, row = 5, pady = 5) 
+ttk.Label(Questions, text ="Does applicant lease equipment to others with or without operators?").grid(column = 0, row = 5, pady = 5) 
 a126q6 =['Yes', 'No']
 a126q6Clk = StringVar()
-a126q6Clk.set(a126q1[1])
-a126q6Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
+a126q6Clk.set(a126q6[1])
+a126q6Mn = OptionMenu(Questions, a126q6Clk, *a126q6)
 a126q6Mn.grid(column = 1, row = 5, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 7?").grid(column = 0, row = 6, pady = 5) 
+
+Questions2 = ttk.Frame(Products)
+Questions2.grid(column = 0, row = 0, pady = 0, padx = 30)
+
+ttk.Label(Questions2, text ="Does applicant install, service or demonstrate products?").grid(column = 0, row = 0, pady = 5) 
 a126q7 =['Yes', 'No']
 a126q7Clk = StringVar()
-a126q7Clk.set(a126q1[1])
-a126q7Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
-a126q7Mn.grid(column = 1, row = 6, padx = 5, pady = 5, sticky=W)
+a126q7Clk.set(a126q7[1])
+a126q7Mn = OptionMenu(Questions2, a126q7Clk, *a126q7)
+a126q7Mn.grid(column = 1, row = 0, padx = 5, pady = 5, sticky=W)
 
-ttk.Label(Questions, text ="This is question number 8?").grid(column = 0, row = 7, pady = 5) 
+ttk.Label(Questions2, text ="Foreign products sold, distributed, or used as components?").grid(column = 0, row = 1, pady = 5) 
 a126q8 =['Yes', 'No']
 a126q8Clk = StringVar()
-a126q8Clk.set(a126q1[1])
-a126q8Mn = OptionMenu(Questions, a126q1Clk, *a126q1)
-a126q8Mn.grid(column = 1, row = 7, padx = 5, pady = 5, sticky=W)
+a126q8Clk.set(a126q8[1])
+a126q8Mn = OptionMenu(Questions2, a126q8Clk, *a126q8)
+a126q8Mn.grid(column = 1, row = 1, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Research and development conducted or new products planned?").grid(column = 0, row = 2, pady = 5) 
+a126q9 =['Yes', 'No']
+a126q9Clk = StringVar()
+a126q9Clk.set(a126q9[1])
+a126q9Mn = OptionMenu(Questions2, a126q9Clk, *a126q9)
+a126q9Mn.grid(column = 1, row = 2, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Guarantees, warranties, hold harmless agreements?").grid(column = 0, row = 3, pady = 5) 
+a126q10 =['Yes', 'No']
+a126q10Clk = StringVar()
+a126q10Clk.set(a126q10[1])
+a126q10Mn = OptionMenu(Questions2, a126q10Clk, *a126q10)
+a126q10Mn.grid(column = 1, row = 3, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Products related to aircraft/space industry?").grid(column = 0, row = 4, pady = 5) 
+a126q11 =['Yes', 'No']
+a126q11Clk = StringVar()
+a126q11Clk.set(a126q11[1])
+a126q11Mn = OptionMenu(Questions2, a126q11Clk, *a126q11)
+a126q11Mn.grid(column = 1, row = 4, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Products recalled, discontinued, changed?").grid(column = 0, row = 5, pady = 5) 
+a126q12 =['Yes', 'No']
+a126q12Clk = StringVar()
+a126q12Clk.set(a126q12[1])
+a126q12Mn = OptionMenu(Questions2, a126q12Clk, *a126q12)
+a126q12Mn.grid(column = 1, row = 5, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Products of others sold or repackaged under applicant’s label?").grid(column = 0, row = 6, pady = 5) 
+a126q13 =['Yes', 'No']
+a126q13Clk = StringVar()
+a126q13Clk.set(a126q13[1])
+a126q13Mn = OptionMenu(Questions2, a126q13Clk, *a126q1)
+a126q13Mn.grid(column = 1, row = 6, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Products under label of others?").grid(column = 0, row = 7, pady = 5) 
+a126q14 =['Yes', 'No']
+a126q14Clk = StringVar()
+a126q14Clk.set(a126q14[1])
+a126q14Mn = OptionMenu(Questions2, a126q14Clk, *a126q14)
+a126q14Mn.grid(column = 1, row = 7, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Vendor’s coverage required?").grid(column = 0, row = 8, pady = 5) 
+a126q15 =['Yes', 'No']
+a126q15Clk = StringVar()
+a126q15Clk.set(a126q15[1])
+a126q15Mn = OptionMenu(Questions2, a126q15Clk, *a126q15)
+a126q15Mn.grid(column = 1, row = 8, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions2, text ="Does any named insured sell to any other named insured?").grid(column = 0, row = 9, pady = 5) 
+a126q16 =['Yes', 'No']
+a126q16Clk = StringVar()
+a126q16Clk.set(a126q16[1])
+a126q16Mn = OptionMenu(Questions2, a126q16Clk, *a126q16)
+a126q16Mn.grid(column = 1, row = 9, padx = 5, pady = 5, sticky=W)
+
+Questions3 = ttk.Frame(ClaimsMade)
+Questions3.grid(column = 0, row = 0, pady = 0, padx = 30)
+
+ttk.Label(Questions3, text ="Does applicant install, service or demonstrate products?").grid(column = 0, row = 0, pady = 5) 
+a126q17 =['Yes', 'No']
+a126q17Clk = StringVar()
+a126q17Clk.set(a126q17[1])
+a126q17Mn = OptionMenu(Questions3, a126q17Clk, *a126q17)
+a126q17Mn.grid(column = 1, row = 0, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions3, text ="Foreign products sold, distributed, or used as components?").grid(column = 0, row = 1, pady = 5) 
+a126q18 =['Yes', 'No']
+a126q18Clk = StringVar()
+a126q18Clk.set(a126q18[1])
+a126q18Mn = OptionMenu(Questions3, a126q18Clk, *a126q18)
+a126q18Mn.grid(column = 1, row = 1, padx = 5, pady = 5, sticky=W)
+
+Questions4 = ttk.Frame(General)
+Questions4.grid(column = 0, row = 0, pady = 0, padx = 30)
+
+ttk.Label(Questions4, text ="Any medical facilities provided or medical professionals employed or contracted?").grid(column = 0, row = 0, pady = 5) 
+a126q19 =['Yes', 'No']
+a126q19Clk = StringVar()
+a126q19Clk.set(a126q19[1])
+a126q19Mn = OptionMenu(Questions4, a126q19Clk, *a126q19)
+a126q19Mn.grid(column = 1, row = 0, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Any exposure to radioactive/nuclear materials?").grid(column = 0, row = 1, pady = 5) 
+a126q20 =['Yes', 'No']
+a126q20Clk = StringVar()
+a126q20Clk.set(a126q20[1])
+a126q20Mn = OptionMenu(Questions4, a126q20Clk, *a126q20)
+a126q20Mn.grid(column = 1, row = 1, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Do operations involve storing, treating, discharging, applying, disposing or transporting hazardous material?").grid(column = 0, row = 2, pady = 5) 
+a126q21 =['Yes', 'No']
+a126q21Clk = StringVar()
+a126q21Clk.set(a126q21[1])
+a126q21Mn = OptionMenu(Questions4, a126q21Clk, *a126q21)
+a126q21Mn.grid(column = 1, row = 2, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Any listed operations sold, acquired, or discontinued in the last five (5) years?").grid(column = 0, row = 3, pady = 5) 
+a126q22 =['Yes', 'No']
+a126q22Clk = StringVar()
+a126q22Clk.set(a126q22[1])
+a126q22Mn = OptionMenu(Questions4, a126q22Clk, *a126q22)
+a126q22Mn.grid(column = 1, row = 3, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Is any machinery or equipment loaned or rented to others?").grid(column = 0, row = 4, pady = 5) 
+a126q23 =['Yes', 'No']
+a126q23Clk = StringVar()
+a126q23Clk.set(a126q23[1])
+a126q23Mn = OptionMenu(Questions4, a126q23Clk, *a126q23)
+a126q23Mn.grid(column = 1, row = 4, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Any watercraft, docks, floats owned, hired, or leased?").grid(column = 0, row = 5, pady = 5) 
+a126q24 =['Yes', 'No']
+a126q24Clk = StringVar()
+a126q24Clk.set(a126q24[1])
+a126q24Mn = OptionMenu(Questions4, a126q24Clk, *a126q24)
+a126q24Mn.grid(column = 1, row = 5, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Any parking facilities owned/ rented?").grid(column = 0, row = 6, pady = 5) 
+a126q25 =['Yes', 'No']
+a126q25Clk = StringVar()
+a126q25Clk.set(a126q25[1])
+a126q25Mn = OptionMenu(Questions4, a126q25Clk, *a126q25)
+a126q25Mn.grid(column = 1, row = 6, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Is a fee charged for parking?").grid(column = 0, row = 7, pady = 5) 
+a126q26 =['Yes', 'No']
+a126q26Clk = StringVar()
+a126q26Clk.set(a126q26[1])
+a126q26Mn = OptionMenu(Questions4, a126q26Clk, *a126q26)
+a126q26Mn.grid(column = 1, row = 7, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Are any recreational facilities provided?").grid(column = 0, row = 8, pady = 5) 
+a126q27 =['Yes', 'No']
+a126q27Clk = StringVar()
+a126q27Clk.set(a126q27[1])
+a126q27Mn = OptionMenu(Questions4, a126q27Clk, *a126q27)
+a126q27Mn.grid(column = 1, row = 8, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Are there any lodging operations including apartments?").grid(column = 0, row = 9, pady = 5) 
+a126q28 =['Yes', 'No']
+a126q28Clk = StringVar()
+a126q28Clk.set(a126q28[1])
+a126q28Mn = OptionMenu(Questions4, a126q28Clk, *a126q28)
+a126q28Mn.grid(column = 1, row = 9, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions4, text ="Is there a swimming pool on the premises?").grid(column = 0, row = 10, pady = 5) 
+a126q29 =['Yes', 'No']
+a126q29Clk = StringVar()
+a126q29Clk.set(a126q29[1])
+a126q29Mn = OptionMenu(Questions4, a126q29Clk, *a126q29)
+a126q29Mn.grid(column = 1, row = 10, padx = 5, pady = 5, sticky=W)
+
+Questions5 = ttk.Frame(GeneralCont)
+Questions5.grid(column = 0, row = 0, pady = 0, padx = 30)
+
+ttk.Label(Questions5, text ="Are social events sponsored?").grid(column = 0, row = 0, pady = 5) 
+a126q19 =['Yes', 'No']
+a126q19Clk = StringVar()
+a126q19Clk.set(a126q19[1])
+a126q19Mn = OptionMenu(Questions5, a126q19Clk, *a126q19)
+a126q19Mn.grid(column = 1, row = 0, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Are athletic teams sponsored?").grid(column = 0, row = 1, pady = 5) 
+a126q20 =['Yes', 'No']
+a126q20Clk = StringVar()
+a126q20Clk.set(a126q20[1])
+a126q20Mn = OptionMenu(Questions5, a126q20Clk, *a126q20)
+a126q20Mn.grid(column = 1, row = 1, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Any structural alterations contemplated?").grid(column = 0, row = 2, pady = 5) 
+a126q21 =['Yes', 'No']
+a126q21Clk = StringVar()
+a126q21Clk.set(a126q21[1])
+a126q21Mn = OptionMenu(Questions5, a126q21Clk, *a126q21)
+a126q21Mn.grid(column = 1, row = 2, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Any demolition exposure contemplated?").grid(column = 0, row = 3, pady = 5) 
+a126q22 =['Yes', 'No']
+a126q22Clk = StringVar()
+a126q22Clk.set(a126q22[1])
+a126q22Mn = OptionMenu(Questions5, a126q22Clk, *a126q22)
+a126q22Mn.grid(column = 1, row = 3, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Has applicant been active in or is currently active in joint ventures?").grid(column = 0, row = 4, pady = 5) 
+a126q23 =['Yes', 'No']
+a126q23Clk = StringVar()
+a126q23Clk.set(a126q23[1])
+a126q23Mn = OptionMenu(Questions5, a126q23Clk, *a126q23)
+a126q23Mn.grid(column = 1, row = 4, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Do you lease employees to or from others?").grid(column = 0, row = 5, pady = 5) 
+a126q24 =['Yes', 'No']
+a126q24Clk = StringVar()
+a126q24Clk.set(a126q24[1])
+a126q24Mn = OptionMenu(Questions5, a126q24Clk, *a126q24)
+a126q24Mn.grid(column = 1, row = 5, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Is there a labor interchange with any other business or subsidiaries?").grid(column = 0, row = 6, pady = 5) 
+a126q25 =['Yes', 'No']
+a126q25Clk = StringVar()
+a126q25Clk.set(a126q25[1])
+a126q25Mn = OptionMenu(Questions5, a126q25Clk, *a126q25)
+a126q25Mn.grid(column = 1, row = 6, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Are daycare facilities operated or controlled?").grid(column = 0, row = 7, pady = 5) 
+a126q26 =['Yes', 'No']
+a126q26Clk = StringVar()
+a126q26Clk.set(a126q26[1])
+a126q26Mn = OptionMenu(Questions5, a126q26Clk, *a126q26)
+a126q26Mn.grid(column = 1, row = 7, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Have any crimes occurred or been attempted on your premises within the last three (3) years?").grid(column = 0, row = 8, pady = 5) 
+a126q27 =['Yes', 'No']
+a126q27Clk = StringVar()
+a126q27Clk.set(a126q27[1])
+a126q27Mn = OptionMenu(Questions5, a126q27Clk, *a126q27)
+a126q27Mn.grid(column = 1, row = 8, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Is there a formal, written safety and security policy in effect?").grid(column = 0, row = 9, pady = 5) 
+a126q28 =['Yes', 'No']
+a126q28Clk = StringVar()
+a126q28Clk.set(a126q28[1])
+a126q28Mn = OptionMenu(Questions5, a126q28Clk, *a126q28)
+a126q28Mn.grid(column = 1, row = 9, padx = 5, pady = 5, sticky=W)
+
+ttk.Label(Questions5, text ="Does the businesses’ promotional literature make any representations about the safety or security of the premises?").grid(column = 0, row = 10, pady = 5) 
+a126q29 =['Yes', 'No']
+a126q29Clk = StringVar()
+a126q29Clk.set(a126q29[1])
+a126q29Mn = OptionMenu(Questions5, a126q29Clk, *a126q29)
+a126q29Mn.grid(column = 1, row = 10, padx = 5, pady = 5, sticky=W)
+
+
+
+#---------------------------------------------------------------------------------
+#-----------------------ACCORD 140------------------------------------------------
+#---------------------------------------------------------------------------------
+
+
+tabControl5 = ttk.Notebook(Acc140)
+tabControl5.pack(expand = 1, fill ="both", padx = 30, pady = 30) 
+a140Prem1 = ttk.Frame(tabControl5, width=400, height=400)
+a140Prem2 = ttk.Frame(tabControl5, width=400, height=400)
+tabControl5.add(a140Prem1, text ='Premise 1')
+tabControl5.add(a140Prem2, text ='Premise 2')
+
+def a140PremTabs(a140Prem):
+
+	ttk.Label(a140Prem, text ="Subject of Ins").grid(column = 0, row = 0, padx = 5, pady = 5) 
+	a140SubjectOfIns1 = ttk.Entry(a140Prem)
+	a140SubjectOfIns1.grid(column = 0, row = 1, padx = 5, pady = 5) 
+	a140SubjectOfIns2 = ttk.Entry(a140Prem)
+	a140SubjectOfIns2.grid(column = 0, row = 2, padx = 5, pady = 5) 
+	a140SubjectOfIns3 = ttk.Entry(a140Prem)
+	a140SubjectOfIns3.grid(column = 0, row = 3, padx = 5, pady = 5) 
+	a140SubjectOfIns4 = ttk.Entry(a140Prem)
+	a140SubjectOfIns4.grid(column = 0, row = 4, padx = 5, pady = 5) 
+	a140SubjectOfIns5 = ttk.Entry(a140Prem)
+	a140SubjectOfIns5.grid(column = 0, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Amount").grid(column = 1, row = 0, padx = 5, pady = 5) 
+	a140Amount1 = ttk.Entry(a140Prem)
+	a140Amount1.grid(column = 1, row = 1, padx = 5, pady = 5) 
+	a140Amount2 = ttk.Entry(a140Prem)
+	a140Amount2.grid(column = 1, row = 2, padx = 5, pady = 5) 
+	a140Amount3 = ttk.Entry(a140Prem)
+	a140Amount3.grid(column = 1, row = 3, padx = 5, pady = 5) 
+	a140Amount4 = ttk.Entry(a140Prem)
+	a140Amount4.grid(column = 1, row = 4, padx = 5, pady = 5) 
+	a140Amount5 = ttk.Entry(a140Prem)
+	a140Amount5.grid(column = 1, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Coinsurance").grid(column = 2, row = 0, padx = 5, pady = 5) 
+	a140Coins1 = ttk.Entry(a140Prem, width = 5)
+	a140Coins1.grid(column = 2, row = 1, padx = 5, pady = 5) 
+	a140Coins2 = ttk.Entry(a140Prem, width = 5)
+	a140Coins2.grid(column = 2, row = 2, padx = 5, pady = 5) 
+	a140Coins3 = ttk.Entry(a140Prem, width = 5)
+	a140Coins3.grid(column = 2, row = 3, padx = 5, pady = 5) 
+	a140Coins4 = ttk.Entry(a140Prem, width = 5)
+	a140Coins4.grid(column = 2, row = 4, padx = 5, pady = 5) 
+	a140Coins5 = ttk.Entry(a140Prem, width = 5)
+	a140Coins5.grid(column = 2, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Valuation").grid(column = 3, row = 0, padx = 5, pady = 5) 
+	a140Valuation1 = ttk.Entry(a140Prem, width = 5)
+	a140Valuation1.grid(column = 3, row = 1, padx = 5, pady = 5) 
+	a140Valuation2 = ttk.Entry(a140Prem, width = 5)
+	a140Valuation2.grid(column = 3, row = 2, padx = 5, pady = 5) 
+	a140Valuation3 = ttk.Entry(a140Prem, width = 5)
+	a140Valuation3.grid(column = 3, row = 3, padx = 5, pady = 5) 
+	a140Valuation4 = ttk.Entry(a140Prem, width = 5)
+	a140Valuation4.grid(column = 3, row = 4, padx = 5, pady = 5) 
+	a140Valuation5 = ttk.Entry(a140Prem, width = 5)
+	a140Valuation5.grid(column = 3, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Causes").grid(column = 4, row = 0, padx = 5, pady = 5) 
+	a140Cause1 = ttk.Entry(a140Prem)
+	a140Cause1.grid(column = 4, row = 1, padx = 5, pady = 5) 
+	a140Cause2 = ttk.Entry(a140Prem)
+	a140Cause2.grid(column = 4, row = 2, padx = 5, pady = 5) 
+	a140Cause3 = ttk.Entry(a140Prem)
+	a140Cause3.grid(column = 4, row = 3, padx = 5, pady = 5) 
+	a140Cause4 = ttk.Entry(a140Prem)
+	a140Cause4.grid(column = 4, row = 4, padx = 5, pady = 5) 
+	a140Cause5 = ttk.Entry(a140Prem)
+	a140Cause5.grid(column = 4, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Infl Guard").grid(column = 5, row = 0, padx = 5, pady = 5) 
+	a140INfGuard1 = ttk.Entry(a140Prem, width = 5)
+	a140INfGuard1.grid(column = 5, row = 1, padx = 5, pady = 5) 
+	a140INfGuard2 = ttk.Entry(a140Prem, width = 5)
+	a140INfGuard2.grid(column = 5, row = 2, padx = 5, pady = 5) 
+	a140INfGuard3 = ttk.Entry(a140Prem, width = 5)
+	a140INfGuard3.grid(column = 5, row = 3, padx = 5, pady = 5) 
+	a140INfGuard4 = ttk.Entry(a140Prem, width = 5)
+	a140INfGuard4.grid(column = 5, row = 4, padx = 5, pady = 5) 
+	a140INfGuard5 = ttk.Entry(a140Prem, width = 5)
+	a140INfGuard5.grid(column = 5, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Deductible").grid(column = 6, row = 0, padx = 5, pady = 5) 
+	a140Ded1 = ttk.Entry(a140Prem, width = 8)
+	a140Ded1.grid(column = 6, row = 1, padx = 5, pady = 5) 
+	a140Ded2 = ttk.Entry(a140Prem, width = 8)
+	a140Ded2.grid(column = 6, row = 2, padx = 5, pady = 5) 
+	a140Ded3 = ttk.Entry(a140Prem, width = 8)
+	a140Ded3.grid(column = 6, row = 3, padx = 5, pady = 5) 
+	a140Ded4 = ttk.Entry(a140Prem, width = 8)
+	a140Ded4.grid(column = 6, row = 4, padx = 5, pady = 5) 
+	a140Ded5 = ttk.Entry(a140Prem, width = 8)
+	a140Ded5.grid(column = 6, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Forms and Conditions").grid(column = 7, row = 0, padx = 5, pady = 5) 
+	a140Conditions1 = ttk.Entry(a140Prem)
+	a140Conditions1.grid(column = 7, row = 1, padx = 5, pady = 5) 
+	a140Conditions2 = ttk.Entry(a140Prem)
+	a140Conditions2.grid(column = 7, row = 2, padx = 5, pady = 5) 
+	a140Conditions3 = ttk.Entry(a140Prem)
+	a140Conditions3.grid(column = 7, row = 3, padx = 5, pady = 5) 
+	a140Conditions4 = ttk.Entry(a140Prem)
+	a140Conditions4.grid(column = 7, row = 4, padx = 5, pady = 5) 
+	a140Conditions5 = ttk.Entry(a140Prem)
+	a140Conditions5.grid(column = 7, row = 5, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text =" ").grid(column = 0, row = 6, padx = 5, pady = 5)
+
+	ttk.Label(a140Prem, text ="Construction Type").grid(column = 0, row = 7, padx = 5, pady = 5)
+	a140Construction = ttk.Entry(a140Prem)
+	a140Construction.grid(column = 1, row = 7, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Distance to hydrant").grid(column = 0, row = 8, padx = 5, pady = 5)
+	a140Hydrant = ttk.Entry(a140Prem)
+	a140Hydrant.grid(column = 1, row = 8, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Distance to fire station").grid(column = 0, row = 9, padx = 5, pady = 5)
+	a140FireSt = ttk.Entry(a140Prem)
+	a140FireSt.grid(column = 1, row = 9, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="PROT CL").grid(column = 0, row = 10, padx = 5, pady = 5)
+	a140PROTCL = ttk.Entry(a140Prem)
+	a140PROTCL.grid(column = 1, row = 10, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Number of stories").grid(column = 0, row = 11, padx = 5, pady = 5)
+	a140Stories = ttk.Entry(a140Prem)
+	a140Stories.grid(column = 1, row = 11, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Year built").grid(column = 0, row = 12, padx = 5, pady = 5)
+	a140YearB = ttk.Entry(a140Prem)
+	a140YearB.grid(column = 1, row = 12, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Total area").grid(column = 0, row = 13, padx = 5, pady = 5)
+	a140TotalArea = ttk.Entry(a140Prem)
+	a140TotalArea.grid(column = 1, row = 13, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Wiring update").grid(column = 0, row = 14, padx = 5, pady = 5)
+	a140WiringUpd = ttk.Entry(a140Prem)
+	a140WiringUpd.grid(column = 1, row = 14, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Plumbing update").grid(column = 0, row = 15, padx = 5, pady = 5)
+	a140PlumbUpd = ttk.Entry(a140Prem)
+	a140PlumbUpd.grid(column = 1, row = 15, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Roof update").grid(column = 0, row = 16, padx = 5, pady = 5)
+	a140RoofUpd = ttk.Entry(a140Prem)
+	a140RoofUpd.grid(column = 1, row = 16, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Heating update").grid(column = 0, row = 17, padx = 5, pady = 5)
+	a140HeatUpd = ttk.Entry(a140Prem)
+	a140HeatUpd.grid(column = 1, row = 17, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Roof type").grid(column = 2, row = 7, padx = 5, pady = 5)
+	a140RoofType = ttk.Entry(a140Prem)
+	a140RoofType.grid(column = 3, row = 7, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Other occupancies").grid(column = 2, row = 8, padx = 5, pady = 5)
+	a140Occupancy = ttk.Entry(a140Prem)
+	a140Occupancy.grid(column = 3, row = 8, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Burglar alarm").grid(column = 2, row = 9, padx = 5, pady = 5)
+	a140Burglar = ttk.Entry(a140Prem)
+	a140Burglar.grid(column = 3, row = 9, padx = 5, pady = 5) 
+
+	ttk.Label(a140Prem, text ="Fire protection").grid(column = 2, row = 10, padx = 5, pady = 5)
+	a140FireProt = ttk.Entry(a140Prem)
+	a140FireProt.grid(column = 3, row = 10, padx = 5, pady = 5) 
+
+
+	return a140SubjectOfIns1, a140SubjectOfIns2, a140SubjectOfIns3, a140SubjectOfIns4, a140SubjectOfIns5, a140Amount1, a140Amount2, a140Amount3, a140Amount4, a140Amount5, a140Coins1, a140Coins2, a140Coins3, a140Coins4, a140Coins5, a140Valuation1, a140Valuation2, a140Valuation3, a140Valuation4, a140Valuation5, a140Cause1, a140Cause2, a140Cause3, a140Cause4, a140Cause5, a140INfGuard1, a140INfGuard2, a140INfGuard3, a140INfGuard4, a140INfGuard5, a140Ded1, a140Ded2, a140Ded3, a140Ded4, a140Ded5, a140Conditions1, a140Conditions2, a140Conditions3, a140Conditions4, a140Conditions5, a140Construction, a140Hydrant, a140FireSt, a140PROTCL, a140Stories, a140YearB, a140TotalArea, a140WiringUpd, a140PlumbUpd, a140RoofUpd, a140HeatUpd, a140RoofType, a140Occupancy, a140Burglar, a140FireProt
+
+
+	
+
+a140SubjectOfIns11, a140SubjectOfIns21, a140SubjectOfIns31, a140SubjectOfIns41, a140SubjectOfIns51, a140Amount11, a140Amount21, a140Amount31, a140Amount41, a140Amount51, a140Coins11, a140Coins21, a140Coins31, a140Coins41, a140Coins51, a140Valuation11, a140Valuation21, a140Valuation31, a140Valuation4, a140Valuation5,a140Cause11, a140Cause21, a140Cause31, a140Cause41, a140Cause51, a140INfGuard11, a140INfGuard21, a140INfGuard31, a140INfGuard41, a140INfGuard51, a140Ded11, a140Ded21, a140Ded31, a140Ded41, a140Ded51, a140Conditions11, a140Conditions21, a140Conditions31, a140Conditions41, a140Conditions51, a140Construction1, a140Hydrant1, a140FireSt1, a140PROTCL1, a140Stories1, a140YearB1, a140TotalArea1, a140WiringUpd1, a140PlumbUpd1, a140RoofUpd1, a140HeatUpd1, a140RoofType1, a140Occupancy1, a140Burglar1, a140FireProt1 = a140PremTabs(a140Prem1)
+a140SubjectOfIns12, a140SubjectOfIns22, a140SubjectOfIns32, a140SubjectOfIns42, a140SubjectOfIns52, a140Amount12, a140Amount22, a140Amount32, a140Amount42, a140Amount52, a140Coins12, a140Coins22, a140Coins32, a140Coins42, a140Coins52, a140Valuation12, a140Valuation22, a140Valuation32, a140Valuation42, a140Valuation52,a140Cause12, a140Cause22, a140Cause32, a140Cause42, a140Cause52, a140INfGuard12, a140INfGuard22, a140INfGuard32, a140INfGuard42, a140INfGuard52, a140Ded12, a140Ded22, a140Ded32, a140Ded42, a140Ded52, a140Conditions12, a140Conditions22, a140Conditions32, a140Conditions42, a140Conditions52, a140Construction2, a140Hydrant2, a140FireSt2, a140PROTCL2, a140Stories2, a140YearB2, a140TotalArea2, a140WiringUpd2, a140PlumbUpd2, a140RoofUpd2, a140HeatUpd2, a140RoofType2, a140Occupancy2, a140Burglar2, a140FireProt2 = a140PremTabs(a140Prem2)
+
 
 
 #---------------------------------------------------------------------------------
@@ -549,6 +974,63 @@ def saveEntries():
 	A125LossPaid2G = A125LossPaid2.get()
 
 	A125natureG = A125nature.get()
+
+	A126GenAggVG = A126GenAggV.get()
+
+	Class1Location1G = Class1Location1.get()
+	Class1Hazard1G = Class1Hazard1.get()
+	Class1Classification1G = Class1Classification1.get()
+	Class1CCode1G = Class1CCode1.get()
+	Class1Basis1G = Class1Basis1.get()
+	Class1Exposure1G = Class1Exposure1.get()
+	Class1Location2G = Class1Location2.get()
+	Class1Hazard2G = Class1Hazard2.get()
+	Class1Classification2G = Class1Classification2.get()
+	Class1CCode2G = Class1CCode2.get()
+	Class1Basis2G = Class1Basis2.get()
+	Class1Exposure2G = Class1Exposure2.get()
+	Class1Location3G = Class1Location3.get()
+	Class1Hazard3G = Class1Hazard3.get()
+	Class1Classification3G = Class1Classification3.get()
+	Class1CCode3G = Class1CCode3.get()
+	Class1Basis3G = Class1Basis3.get()
+	Class1Exposure3G = Class1Exposure3.get()
+	Class1Location4G = Class1Location4.get()
+	Class1Hazard4G = Class1Hazard4.get()
+	Class1Classification4G = Class1Classification4.get()
+	Class1CCode4G = Class1CCode4.get()
+	Class1Basis4G = Class1Basis4.get()
+	Class1Exposure4G = Class1Exposure4.get()
+
+	a126q1MnG = a126q1Clk.get()
+	a126q2MnG = a126q2Clk.get()
+	a126q3MnG = a126q3Clk.get()
+	a126q4MnG = a126q4Clk.get()
+	a126q5MnG = a126q5Clk.get()
+	a126q6MnG = a126q6Clk.get()
+	a126q7MnG = a126q7Clk.get()
+	a126q8MnG = a126q8Clk.get()
+	a126q9MnG = a126q9Clk.get()
+	a126q10MnG = a126q10Clk.get()
+	a126q11MnG = a126q11Clk.get()
+	a126q12MnG = a126q12Clk.get()
+	a126q13MnG = a126q13Clk.get()
+	a126q14MnG = a126q14Clk.get()
+	a126q15MnG = a126q15Clk.get()
+	a126q16MnG = a126q16Clk.get()
+	a126q17MnG = a126q17Clk.get()
+	a126q18MnG = a126q18Clk.get()
+	a126q19MnG = a126q19Clk.get()
+	a126q20MnG = a126q20Clk.get()
+	a126q21MnG = a126q21Clk.get()
+	a126q22MnG = a126q22Clk.get()
+	a126q23MnG = a126q23Clk.get()
+	a126q24MnG = a126q24Clk.get()
+	a126q25MnG = a126q25Clk.get()
+	a126q26MnG = a126q26Clk.get()
+	a126q27MnG = a126q27Clk.get()
+	a126q28MnG = a126q28Clk.get()
+	a126q29MnG = a126q29Clk.get()
 	
 
 	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 
@@ -562,7 +1044,14 @@ def saveEntries():
 	'carrierName3G', 'carrierEff3G', 'carrierExp3G', 'A125CheckGL3G', 'A125CheckAuto3G', 'A125CheckProperty3G', 'A125CheckOther3G',
 	'carrierName4G', 'carrierEff4G', 'carrierExp4G', 'A125CheckGL4G', 'A125CheckAuto4G', 'A125CheckProperty4G', 'A125CheckOther4G',
 	'A125LossNum1G', 'A125LossDate1G', 'A125TypeType1G', 'A125LossPaid1G', 'A125LossNum2G', 'A125LossDate2G', 'A125TypeType2G', 'A125LossPaid2G',
-	'A125natureG']:
+	'A125natureG', 'A126GenAggVG',
+	'Class1Location1G', 'Class1Hazard1G', 'Class1Classification1G', 'Class1CCode1G', 'Class1Basis1G','Class1Exposure1G',
+	'Class1Location2G', 'Class1Hazard2G', 'Class1Classification2G', 'Class1CCode2G', 'Class1Basis2G','Class1Exposure2G',
+	'Class1Location3G', 'Class1Hazard3G', 'Class1Classification3G', 'Class1CCode3G', 'Class1Basis3G','Class1Exposure3G',
+	'Class1Location4G', 'Class1Hazard4G', 'Class1Classification4G', 'Class1CCode4G', 'Class1Basis4G','Class1Exposure4G',
+	'a126q1MnG', 'a126q2MnG', 'a126q3MnG', 'a126q4MnG', 'a126q5MnG', 'a126q6MnG', 'a126q7MnG', 'a126q8MnG', 'a126q9MnG', 'a126q10MnG',
+	'a126q11MnG', 'a126q12MnG', 'a126q13MnG', 'a126q14MnG', 'a126q15MnG', 'a126q16MnG', 'a126q17MnG', 'a126q18MnG', 'a126q19MnG', 'a126q20MnG',
+	'a126q21MnG', 'a126q22MnG', 'a126q23MnG', 'a126q24MnG', 'a126q25MnG', 'a126q26MnG', 'a126q27MnG', 'a126q28MnG', 'a126q29MnG']:
 		entriesDic[variable] = eval(variable)
 
 
@@ -759,6 +1248,59 @@ def loadEntries():
 
 	A125nature.delete(0, 'end')
 	A125nature.insert(0, entriesDic['A125natureG'])
+
+
+	A126GenAggV.set(entriesDic['A126GenAggVG'])
+
+
+	Class1Location1.delete(0, 'end')
+	Class1Location1.insert(0, entriesDic['Class1Location1G'])
+	Class1Hazard1.delete(0, 'end')
+	Class1Hazard1.insert(0, entriesDic['Class1Hazard1G'])
+	Class1Classification1.delete(0, 'end')
+	Class1Classification1.insert(0, entriesDic['Class1Classification1G'])
+	Class1CCode1.delete(0, 'end')
+	Class1CCode1.insert(0, entriesDic['Class1CCode1G'])
+	Class1Basis1.delete(0, 'end')
+	Class1Basis1.insert(0, entriesDic['Class1Basis1G'])
+	Class1Exposure1.delete(0, 'end')
+	Class1Exposure1.insert(0, entriesDic['Class1Exposure1G'])
+	Class1Location2.delete(0, 'end')
+	Class1Location2.insert(0, entriesDic['Class1Location2G'])
+	Class1Hazard2.delete(0, 'end')
+	Class1Hazard2.insert(0, entriesDic['Class1Hazard2G'])
+	Class1Classification2.delete(0, 'end')
+	Class1Classification2.insert(0, entriesDic['Class1Classification2G'])
+	Class1CCode2.delete(0, 'end')
+	Class1CCode2.insert(0, entriesDic['Class1CCode2G'])
+	Class1Basis2.delete(0, 'end')
+	Class1Basis2.insert(0, entriesDic['Class1Basis2G'])
+	Class1Exposure2.delete(0, 'end')
+	Class1Exposure2.insert(0, entriesDic['Class1Exposure2G'])
+	Class1Location3.delete(0, 'end')
+	Class1Location3.insert(0, entriesDic['Class1Location3G'])
+	Class1Hazard3.delete(0, 'end')
+	Class1Hazard3.insert(0, entriesDic['Class1Hazard3G'])
+	Class1Classification3.delete(0, 'end')
+	Class1Classification3.insert(0, entriesDic['Class1Classification3G'])
+	Class1CCode3.delete(0, 'end')
+	Class1CCode3.insert(0, entriesDic['Class1CCode3G'])
+	Class1Basis3.delete(0, 'end')
+	Class1Basis3.insert(0, entriesDic['Class1Basis3G'])
+	Class1Exposure3.delete(0, 'end')
+	Class1Exposure3.insert(0, entriesDic['Class1Exposure3G'])
+	Class1Location4.delete(0, 'end')
+	Class1Location4.insert(0, entriesDic['Class1Location4G'])
+	Class1Hazard4.delete(0, 'end')
+	Class1Hazard4.insert(0, entriesDic['Class1Hazard4G'])
+	Class1Classification4.delete(0, 'end')
+	Class1Classification4.insert(0, entriesDic['Class1Classification4G'])
+	Class1CCode4.delete(0, 'end')
+	Class1CCode4.insert(0, entriesDic['Class1CCode4G'])
+	Class1Basis4.delete(0, 'end')
+	Class1Basis4.insert(0, entriesDic['Class1Basis4G'])
+	Class1Exposure4.delete(0, 'end')
+	Class1Exposure4.insert(0, entriesDic['Class1Exposure4G'])
 
 
 
