@@ -152,42 +152,58 @@ a126q26MnG = a126q26Clk.get()
 a126q27MnG = a126q27Clk.get()
 a126q28MnG = a126q28Clk.get()
 a126q29MnG = a126q29Clk.get()
+a126q30MnG = a126q30Clk.get()
+a126q31MnG = a126q31Clk.get()
+a126q32MnG = a126q32Clk.get()
+a126q33MnG = a126q33Clk.get()
+a126q34MnG = a126q34Clk.get()
+a126q35MnG = a126q35Clk.get()
+a126q36MnG = a126q36Clk.get()
+a126q37MnG = a126q37Clk.get()
+a126q38MnG = a126q38Clk.get()
+a126q39MnG = a126q39Clk.get()
+a126q40MnG = a126q40Clk.get()
 
 
+a126q1Clk.set(entriesDic['a126q1MnG'])
+a126q2Clk.set(entriesDic['a126q2MnG'])
+a126q3Clk.set(entriesDic['a126q3MnG'])
+a126q4Clk.set(entriesDic['a126q4MnG'])
+a126q5Clk.set(entriesDic['a126q5MnG'])
+a126q6Clk.set(entriesDic['a126q6MnG'])
+a126q7Clk.set(entriesDic['a126q7MnG'])
+a126q8Clk.set(entriesDic['a126q8MnG'])
+a126q9Clk.set(entriesDic['a126q9MnG'])
+a126q10Clk.set(entriesDic['a126q10MnG'])
+a126q11Clk.set(entriesDic['a126q11MnG'])
+a126q12Clk.set(entriesDic['a126q12MnG'])
+a126q13Clk.set(entriesDic['a126q13MnG'])
+a126q14Clk.set(entriesDic['a126q14MnG'])
+a126q15Clk.set(entriesDic['a126q15MnG'])
+a126q16Clk.set(entriesDic['a126q16MnG'])
+a126q17Clk.set(entriesDic['a126q17MnG'])
+a126q18Clk.set(entriesDic['a126q18MnG'])
+a126q19Clk.set(entriesDic['a126q19MnG'])
+a126q20Clk.set(entriesDic['a126q20MnG'])
+a126q21Clk.set(entriesDic['a126q21MnG'])
+a126q22Clk.set(entriesDic['a126q22MnG'])
+a126q23Clk.set(entriesDic['a126q23MnG'])
+a126q24Clk.set(entriesDic['a126q24MnG'])
+a126q25Clk.set(entriesDic['a126q25MnG'])
+a126q26Clk.set(entriesDic['a126q26MnG'])
+a126q27Clk.set(entriesDic['a126q27MnG'])
+a126q28Clk.set(entriesDic['a126q28MnG'])
+a126q29Clk.set(entriesDic['a126q29MnG'])
+a126q30Clk.set(entriesDic['a126q30MnG'])
+a126q31Clk.set(entriesDic['a126q31MnG'])
+a126q32Clk.set(entriesDic['a126q32MnG'])
+a126q33Clk.set(entriesDic['a126q33MnG'])
+a126q34Clk.set(entriesDic['a126q34MnG'])
+a126q35Clk.set(entriesDic['a126q35MnG'])
+a126q36Clk.set(entriesDic['a126q36MnG'])
+a126q37Clk.set(entriesDic['a126q37MnG'])
+a126q38Clk.set(entriesDic['a126q38MnG'])
+a126q39Clk.set(entriesDic['a126q39MnG'])
+a126q40Clk.set(entriesDic['a126q40MnG'])
 
 
-ttk.Label(Acc126, text ="General Aggregate").grid(column = 0, row = 0, padx = 30, pady = 10)
-A126GenAgg = ttk.Frame(Acc126)
-A126GenAgg.grid(column = 1, row = 0, padx = 30, pady = 10, sticky = W, rowspan=2)
-A126GenAggList = {"50,000" : "1", 
-          		"100,000" : "2", 
-          		"300,000" : "3", 
-          		"500,000" : "4", 
-          		"1,000,000" : "5",
-          		"2,000,000" : "6"} 
-
-v1 = StringVar(A126GenAgg, "6")
-for (text, value) in A126GenAggList.items():
-	Radiobutton(A126GenAgg, text = text, variable = v1, value = value).grid(column = 1, sticky=W)
-A126GenAggV = v1
-
-
-
-
-
-tk.Label(Acc125, text ="Type of Organization").grid(column = 0, row = 2, padx = 30, pady = 10)
-busType = ttk.Frame(Acc125)
-busType.grid(column = 1, row = 2, padx = 30, pady = 10, sticky = W, rowspan=2)
-busTypeList = {"CORPORATION" : "1", 
-          		"INDIVIDUAL" : "2", 
-          		"JOINT VENTURE" : "3", 
-          		"LLC" : "4", 
-          		"NON-PROFIT" : "5",
-          		"PARTNERSHIP" : "6",
-          		"SUBCHAPTER" : "7",
-          		"TRUST" : "8"} 
-
-v = StringVar(busType, "1")
-for (text, value) in busTypeList.items():
-	Radiobutton(busType, text = text, variable = v, value = value).grid(column = 1, sticky=W)
-a125Type = v
