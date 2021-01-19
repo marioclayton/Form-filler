@@ -645,14 +645,78 @@ a125Eff = ttk.Entry(Acc125, width = 10)
 a125Eff.grid(column = 1, row = 0, padx = 30, pady = 10, sticky=W) 
 
 ttk.Label(Acc125, text ="Sections").grid(column = 0, row = 1, padx = 30, pady = 10)
-sections = Listbox(Acc125, width = 35, height = 20, selectmode=MULTIPLE )
-sections.grid(column = 1, row = 1, padx = 30, pady = 10)
-sectionsList = ['ACCOUNTS RECEIVABLE', 'BOILER & MACHINERY', 'BUSINESS AUTO', 'BUSINESS OWNERS', 'COMMERCIAL GENERAL LIABILITY', 'CRIME / MISCELLANEOUS CRIME', 'DEALERS', 'ELECTRONIC DATA PROC', 'EQUIPMENT FLOATER', 'GARAGE AND DEALERS', 'GLASS AND SIGN', 'INSTALLATION '' BUILDERS RISK', 'OPEN CARGO', 'PROPERTY', 'TRANPORTATION / MOTOR TRUCK CARGO', 'TRUCKERS / MOTOR CARRIER', 'UMBRELLA', 'YACHT', 'ETO', 'PROFESSIONAL LIABILITY']
-for item in sectionsList:
-    sections.insert(END, item)
+sectionsFrame = ttk.Frame(Acc125)
 
-ttk.Label(Acc125, text ="Type of Organization").grid(column = 0, row = 2, padx = 30, pady = 10)
-busType = ttk.Frame(Acc125)
+
+
+A125Sections1V = IntVar()
+A125Sections1B = Checkbutton(sectionsFrame, text = 'ACCOUNTS RECEIVABLE', variable = A125Sections1V)
+A125Sections1B.grid(column = 1, sticky=W)
+A125Sections2V = IntVar()
+A125Sections2B = Checkbutton(sectionsFrame, text = 'BOILER & MACHINERY', variable = A125Sections2V)
+A125Sections2B.grid(column = 1, sticky=W)
+A125Sections3V = IntVar()
+A125Sections3B = Checkbutton(sectionsFrame, text = 'BUSINESS AUTO', variable = A125Sections3V)
+A125Sections3B.grid(column = 1, sticky=W)
+A125Sections4V = IntVar()
+A125Sections4B = Checkbutton(sectionsFrame, text = 'BUSINESS OWNERS', variable = A125Sections4V)
+A125Sections4B.grid(column = 1, sticky=W)
+A125Sections5V = IntVar()
+A125Sections5B = Checkbutton(sectionsFrame, text = 'COMMERCIAL GENERAL LIABILITY', variable = A125Sections5V)
+A125Sections5B.grid(column = 1, sticky=W)
+A125Sections6V = IntVar()
+A125Sections6B = Checkbutton(sectionsFrame, text = 'CRIME / MISCELLANEOUS CRIME', variable = A125Sections6V)
+A125Sections6B.grid(column = 1, sticky=W)
+A125Sections7V = IntVar()
+A125Sections7B = Checkbutton(sectionsFrame, text = 'DEALERS', variable = A125Sections7V)
+A125Sections7B.grid(column = 1, sticky=W)
+A125Sections8V = IntVar()
+A125Sections8B = Checkbutton(sectionsFrame, text = 'ELECTRONIC DATA PROC', variable = A125Sections8V)
+A125Sections8B.grid(column = 1, sticky=W)
+A125Sections9V = IntVar()
+A125Sections9B = Checkbutton(sectionsFrame, text = 'EQUIPMENT FLOATER', variable = A125Sections9V)
+A125Sections9B.grid(column = 1, sticky=W)
+A125Sections10V = IntVar()
+A125Sections10B = Checkbutton(sectionsFrame, text = 'GARAGE AND DEALERS', variable = A125Sections10V)
+A125Sections10B.grid(column = 1, sticky=W)
+A125Sections11V = IntVar()
+A125Sections11B = Checkbutton(sectionsFrame, text = 'GLASS AND SIGN', variable = A125Sections11V)
+A125Sections11B.grid(column = 1, sticky=W)
+A125Sections12V = IntVar()
+A125Sections12B = Checkbutton(sectionsFrame, text = 'INSTALLATION ', variable = A125Sections12V)
+A125Sections12B.grid(column = 1, sticky=W)
+A125Sections14V = IntVar()
+A125Sections14B = Checkbutton(sectionsFrame, text = 'OPEN CARGO', variable = A125Sections14V)
+A125Sections14B.grid(column = 1, sticky=W)
+A125Sections15V = IntVar()
+A125Sections15B = Checkbutton(sectionsFrame, text = 'PROPERTY', variable = A125Sections15V)
+A125Sections15B.grid(column = 1, sticky=W)
+A125Sections16V = IntVar()
+A125Sections16B = Checkbutton(sectionsFrame, text = 'TRANPORTATION / MOTOR TRUCK CARGO', variable = A125Sections16V)
+A125Sections16B.grid(column = 1, sticky=W)
+A125Sections17V = IntVar()
+A125Sections17B = Checkbutton(sectionsFrame, text = 'TRUCKERS / MOTOR CARRIER', variable = A125Sections17V)
+A125Sections17B.grid(column = 1, sticky=W)
+A125Sections18V = IntVar()
+A125Sections18B = Checkbutton(sectionsFrame, text = 'UMBRELLA', variable = A125Sections18V)
+A125Sections18B.grid(column = 1, sticky=W)
+A125Sections19V = IntVar()
+A125Sections19B = Checkbutton(sectionsFrame, text = 'YACHT', variable = A125Sections19V)
+A125Sections19B.grid(column = 1, sticky=W)
+A125Sections20V = IntVar()
+A125Sections20B = Checkbutton(sectionsFrame, text = 'ETO', variable = A125Sections20V)
+A125Sections20B.grid(column = 1, sticky=W)
+A125Sections21V = IntVar()
+A125Sections21B = Checkbutton(sectionsFrame, text = 'PROFESSIONAL LIABILITY', variable = A125Sections21V)
+A125Sections21B.grid(column = 1, sticky=W)
+
+sectionsFrame.grid(column = 1, row = 1, rowspan = 2, padx = 30, pady = 10, sticky=W)
+
+
+TypeFrame = ttk.Frame(Acc125)
+
+ttk.Label(TypeFrame, text ="Type of Organization").grid(column = 0, row = 2, padx = 30, pady = 10)
+busType = ttk.Frame(TypeFrame)
 busType.grid(column = 1, row = 2, padx = 30, pady = 10, sticky = W, rowspan=2)
 busTypeList = {"CORPORATION" : "1", 
           		"INDIVIDUAL" : "2", 
@@ -667,6 +731,8 @@ v = StringVar(busType, "1")
 for (text, value) in busTypeList.items():
 	Radiobutton(busType, text = text, variable = v, value = value).grid(column = 1, sticky=W)
 a125Type = v
+
+TypeFrame.grid(column = 3, row = 2, padx = 30, pady = 10, sticky=W)
 
 
 
@@ -872,8 +938,28 @@ def saveEntries():
 	appEmailG = appEmail.get()
 	
 	a125EffG = a125Eff.get()
-	sectionsG = sections.curselection()
 	a125TypeG = a125Type.get()
+
+	A125Sections1VG = A125Sections1V.get()
+	A125Sections2VG = A125Sections2V.get()
+	A125Sections3VG = A125Sections3V.get()
+	A125Sections4VG = A125Sections4V.get()
+	A125Sections5VG = A125Sections5V.get()
+	A125Sections6VG = A125Sections6V.get()
+	A125Sections7VG = A125Sections7V.get()
+	A125Sections8VG = A125Sections8V.get()
+	A125Sections9VG = A125Sections9V.get()
+	A125Sections10VG = A125Sections10V.get()
+	A125Sections11VG = A125Sections11V.get()
+	A125Sections12VG = A125Sections12V.get()
+	A125Sections14VG = A125Sections14V.get()
+	A125Sections15VG = A125Sections15V.get()
+	A125Sections16VG = A125Sections16V.get()
+	A125Sections17VG = A125Sections17V.get()
+	A125Sections18VG = A125Sections18V.get()
+	A125Sections19VG = A125Sections19V.get()
+	A125Sections20VG = A125Sections20V.get()
+	A125Sections21VG = A125Sections21V.get()
 
 	
 	Loc1St1G = Loc1St1.get()
@@ -1157,7 +1243,11 @@ def saveEntries():
 	
 
 	for variable in ['appNameG', 'appAddressG', 'appCityG', 'appStateG', 'appZipG', 'appPhoneG', 
-	'appSecPhG', 'appEmailG', 'a125EffG', 'sectionsG', 'a125TypeG',
+	'appSecPhG', 'appEmailG', 'a125EffG', 'a125TypeG', 
+	'A125Sections1VG', 'A125Sections2VG', 'A125Sections3VG', 'A125Sections4VG', 'A125Sections5VG', 
+	'A125Sections6VG', 'A125Sections7VG', 'A125Sections8VG', 'A125Sections9VG', 'A125Sections10VG', 
+	'A125Sections11VG', 'A125Sections12VG', 'A125Sections14VG', 'A125Sections15VG', 
+	'A125Sections16VG', 'A125Sections17VG', 'A125Sections18VG', 'A125Sections19VG', 'A125Sections20VG', 'A125Sections21VG', 
 	'Loc1St1G', 'Loc1City1G', 'Loc1FullTEmp1G', 'Loc1PartTEmp1G', 'Loc1Rev1G', 'Loc1OccArea1G', 'Loc1PubArea1G', 'Loc1TotArea1G', 'Loc1State1G', 'Loc1Zip1G', 'incitymenu1G', 'tenantOwnerMenu1G', 'leasedMenu1G',
 	'Loc1St2G', 'Loc1City2G', 'Loc1FullTEmp2G', 'Loc1PartTEmp2G', 'Loc1Rev2G', 'Loc1OccArea2G', 'Loc1PubArea2G', 'Loc1TotArea2G', 'Loc1State2G', 'Loc1Zip2G', 'incitymenu2G', 'tenantOwnerMenu2G', 'leasedMenu2G',
 	'Loc1St3G', 'Loc1City3G', 'Loc1FullTEmp3G', 'Loc1PartTEmp3G', 'Loc1Rev3G', 'Loc1OccArea3G', 'Loc1PubArea3G', 'Loc1TotArea3G', 'Loc1State3G', 'Loc1Zip3G', 'incitymenu3G', 'tenantOwnerMenu3G', 'leasedMenu3G',
@@ -1201,7 +1291,7 @@ def saveEntries():
 		entriesDic[variable] = eval(variable)
 
 
-	saveFileName = 'Clients/' + appNameG + '.dat'
+	saveFileName = 'ClientData/' + appNameG + '.dat'
 	with open(saveFileName, 'wb') as file:
 		pickle.dump(entriesDic, file)
 
@@ -1209,7 +1299,7 @@ def saveEntries():
 #-----------------------LOAD---------------------------------------------------------
 
 def loadEntries():
-	saveFileName = filedialog.askopenfilename(initialdir='Clients', title='Open File', filetypes=(('DAT Files', '*.dat'),('All Files', '*.*')))
+	saveFileName = filedialog.askopenfilename(initialdir='ClientData', title='Open File', filetypes=(('DAT Files', '*.dat'),('All Files', '*.*')))
 	with open(saveFileName, 'rb') as file:
 		entriesDic = pickle.load(file)
 
@@ -1231,9 +1321,28 @@ def loadEntries():
 	appEmail.insert(0, entriesDic['appEmailG'])
 	a125Eff.delete(0, 'end')
 	a125Eff.insert(0, entriesDic['a125EffG'])
-	sections.selection_clear(0, 19)
-	for variable in entriesDic['sectionsG']:
-		sections.selection_set(variable)
+
+	A125Sections1V.set(entriesDic['A125Sections1VG'])
+	A125Sections2V.set(entriesDic['A125Sections2VG'])
+	A125Sections3V.set(entriesDic['A125Sections3VG'])
+	A125Sections4V.set(entriesDic['A125Sections4VG'])
+	A125Sections5V.set(entriesDic['A125Sections5VG'])
+	A125Sections6V.set(entriesDic['A125Sections6VG'])
+	A125Sections7V.set(entriesDic['A125Sections7VG'])
+	A125Sections8V.set(entriesDic['A125Sections8VG'])
+	A125Sections9V.set(entriesDic['A125Sections9VG'])
+	A125Sections10V.set(entriesDic['A125Sections10VG'])
+	A125Sections11V.set(entriesDic['A125Sections11VG'])
+	A125Sections12V.set(entriesDic['A125Sections12VG'])
+	A125Sections14V.set(entriesDic['A125Sections14VG'])
+	A125Sections15V.set(entriesDic['A125Sections15VG'])
+	A125Sections16V.set(entriesDic['A125Sections16VG'])
+	A125Sections17V.set(entriesDic['A125Sections17VG'])
+	A125Sections18V.set(entriesDic['A125Sections18VG'])
+	A125Sections19V.set(entriesDic['A125Sections19VG'])
+	A125Sections20V.set(entriesDic['A125Sections20VG'])
+	A125Sections21V.set(entriesDic['A125Sections21VG'])
+	
 	a125Type.set(entriesDic['a125TypeG'])
 	Loc1St1.delete(0, 'end')
 	Loc1St1.insert(0, entriesDic['Loc1St1G'])
@@ -1729,8 +1838,28 @@ def generateForms():
 		appEmailG = appEmail.get()
 		
 		a125EffG = a125Eff.get()
-		sectionsG = sections.curselection()
 		a125TypeG = a125Type.get()
+
+		A125Sections1VG = A125Sections1V.get()
+		A125Sections2VG = A125Sections2V.get()
+		A125Sections3VG = A125Sections3V.get()
+		A125Sections4VG = A125Sections4V.get()
+		A125Sections5VG = A125Sections5V.get()
+		A125Sections6VG = A125Sections6V.get()
+		A125Sections7VG = A125Sections7V.get()
+		A125Sections8VG = A125Sections8V.get()
+		A125Sections9VG = A125Sections9V.get()
+		A125Sections10VG = A125Sections10V.get()
+		A125Sections11VG = A125Sections11V.get()
+		A125Sections12VG = A125Sections12V.get()
+		A125Sections14VG = A125Sections14V.get()
+		A125Sections15VG = A125Sections15V.get()
+		A125Sections16VG = A125Sections16V.get()
+		A125Sections17VG = A125Sections17V.get()
+		A125Sections18VG = A125Sections18V.get()
+		A125Sections19VG = A125Sections19V.get()
+		A125Sections20VG = A125Sections20V.get()
+		A125Sections21VG = A125Sections21V.get()
 
 		
 		Loc1St1G = Loc1St1.get()
@@ -1832,7 +1961,7 @@ def generateForms():
 
 		A125natureG = A125nature.get()
 
-		c = canvas.Canvas('Forms/simple_form_overlay.pdf')
+		c = canvas.Canvas('ClientForms/simple_form_overlay.pdf')
 
 		c.setFont("Helvetica", 8)
 
@@ -1854,6 +1983,29 @@ def generateForms():
 		if a125TypeG == '6': c.drawString(226, 219, 'X')
 		if a125TypeG == '7': c.drawString(323, 232, 'X')
 		if a125TypeG == '8': c.drawString(323, 219, 'X')
+
+		if A125Sections1VG == 1: c.drawString(21, 561, 'X')
+		if A125Sections2VG == 1: c.drawString(21, 549, 'X')
+		if A125Sections3VG == 1: c.drawString(21, 537, 'X')
+		if A125Sections4VG == 1: c.drawString(21, 525, 'X')
+		if A125Sections5VG == 1: c.drawString(21, 512, 'X')
+		if A125Sections6VG == 1: c.drawString(21, 501, 'X')
+		if A125Sections7VG == 1: c.drawString(21, 490, 'X')
+
+		if A125Sections8VG == 1: c.drawString(216, 561, 'X')
+		if A125Sections9VG == 1: c.drawString(216, 549, 'X')
+		if A125Sections10VG == 1: c.drawString(216, 537, 'X')
+		if A125Sections11VG == 1: c.drawString(216, 525, 'X')
+		if A125Sections12VG == 1: c.drawString(216, 512, 'X')
+		if A125Sections14VG == 1: c.drawString(216, 501, 'X')
+		if A125Sections15VG == 1: c.drawString(216, 490, 'X')
+
+		if A125Sections16VG == 1: c.drawString(406, 561, 'X')
+		if A125Sections17VG == 1: c.drawString(406, 549, 'X')
+		if A125Sections18VG == 1: c.drawString(406, 537, 'X')
+		if A125Sections19VG == 1: c.drawString(406, 525, 'X')
+		if A125Sections20VG == 1: c.drawString(406, 512, 'X')
+		if A125Sections21VG == 1: c.drawString(406, 501, 'X')
 
 		c.showPage()
 		c.setFont("Helvetica", 8)
@@ -2091,7 +2243,7 @@ def generateForms():
 		a126q39MnG = a126q39Clk.get()
 		a126q40MnG = a126q40Clk.get()
 		
-		c = canvas.Canvas('Forms/simple_form_overlay1.pdf')
+		c = canvas.Canvas('ClientForms/simple_form_overlay1.pdf')
 
 		c.setFont("Helvetica", 8)
 
@@ -2270,6 +2422,254 @@ def generateForms():
 
 		c.save()
 
+
+	def create_overlay2():
+		appNameG = appName.get()
+		a140SubjectOfIns11G = a140SubjectOfIns11.get()
+		a140SubjectOfIns21G = a140SubjectOfIns21.get()
+		a140SubjectOfIns31G = a140SubjectOfIns31.get()
+		a140SubjectOfIns41G = a140SubjectOfIns41.get()
+		a140SubjectOfIns51G = a140SubjectOfIns51.get()
+		a140Amount11G = a140Amount11.get()
+		a140Amount21G = a140Amount21.get()
+		a140Amount31G = a140Amount31.get()
+		a140Amount41G = a140Amount41.get()
+		a140Amount51G = a140Amount51.get()
+		a140Coins11G = a140Coins11.get()
+		a140Coins21G = a140Coins21.get()
+		a140Coins31G = a140Coins31.get()
+		a140Coins41G = a140Coins41.get()
+		a140Coins51G = a140Coins51.get()
+		a140Valuation11G = a140Valuation11.get()
+		a140Valuation21G = a140Valuation21.get()
+		a140Valuation31G = a140Valuation31.get()
+		a140Valuation41G = a140Valuation41.get()
+		a140Valuation51G = a140Valuation51.get()
+		a140Cause11G = a140Cause11.get()
+		a140Cause21G = a140Cause21.get()
+		a140Cause31G = a140Cause31.get()
+		a140Cause41G = a140Cause41.get()
+		a140Cause51G = a140Cause51.get()
+		a140INfGuard11G = a140INfGuard11.get()
+		a140INfGuard21G = a140INfGuard21.get()
+		a140INfGuard31G = a140INfGuard31.get()
+		a140INfGuard41G = a140INfGuard41.get()
+		a140INfGuard51G = a140INfGuard51.get()
+		a140Ded11G = a140Ded11.get()
+		a140Ded21G = a140Ded21.get()
+		a140Ded31G = a140Ded31.get()
+		a140Ded41G = a140Ded41.get()
+		a140Ded51G = a140Ded51.get()
+		a140Conditions11G = a140Conditions11.get()
+		a140Conditions21G = a140Conditions21.get()
+		a140Conditions31G = a140Conditions31.get()
+		a140Conditions41G = a140Conditions41.get()
+		a140Conditions51G = a140Conditions51.get()
+		a140Construction1G = a140Construction1.get()
+		a140Hydrant1G = a140Hydrant1.get()
+		a140FireSt1G = a140FireSt1.get()
+		a140PROTCL1G = a140PROTCL1.get()
+		a140Stories1G = a140Stories1.get()
+		a140YearB1G = a140YearB1.get()
+		a140TotalArea1G = a140TotalArea1.get()
+		a140WiringUpd1G = a140WiringUpd1.get()
+		a140PlumbUpd1G = a140PlumbUpd1.get()
+		a140RoofUpd1G = a140RoofUpd1.get()
+		a140HeatUpd1G = a140HeatUpd1.get()
+		a140RoofType1G = a140RoofType1.get()
+		a140Occupancy1G = a140Occupancy1.get()
+		a140Burglar1G = a140Burglar1.get()
+		a140FireProt1G = a140FireProt1.get()
+
+		a140SubjectOfIns12G = a140SubjectOfIns12.get()
+		a140SubjectOfIns22G = a140SubjectOfIns22.get()
+		a140SubjectOfIns32G = a140SubjectOfIns32.get()
+		a140SubjectOfIns42G = a140SubjectOfIns42.get()
+		a140SubjectOfIns52G = a140SubjectOfIns52.get()
+		a140Amount12G = a140Amount12.get()
+		a140Amount22G = a140Amount22.get()
+		a140Amount32G = a140Amount32.get()
+		a140Amount42G = a140Amount42.get()
+		a140Amount52G = a140Amount52.get()
+		a140Coins12G = a140Coins12.get()
+		a140Coins22G = a140Coins22.get()
+		a140Coins32G = a140Coins32.get()
+		a140Coins42G = a140Coins42.get()
+		a140Coins52G = a140Coins52.get()
+		a140Valuation12G = a140Valuation12.get()
+		a140Valuation22G = a140Valuation22.get()
+		a140Valuation32G = a140Valuation32.get()
+		a140Valuation42G = a140Valuation42.get()
+		a140Valuation52G = a140Valuation52.get()
+		a140Cause12G = a140Cause12.get()
+		a140Cause22G = a140Cause22.get()
+		a140Cause32G = a140Cause32.get()
+		a140Cause42G = a140Cause42.get()
+		a140Cause52G = a140Cause52.get()
+		a140INfGuard12G = a140INfGuard12.get()
+		a140INfGuard22G = a140INfGuard22.get()
+		a140INfGuard32G = a140INfGuard32.get()
+		a140INfGuard42G = a140INfGuard42.get()
+		a140INfGuard52G = a140INfGuard52.get()
+		a140Ded12G = a140Ded12.get()
+		a140Ded22G = a140Ded22.get()
+		a140Ded32G = a140Ded32.get()
+		a140Ded42G = a140Ded42.get()
+		a140Ded52G = a140Ded52.get()
+		a140Conditions12G = a140Conditions12.get()
+		a140Conditions22G = a140Conditions22.get()
+		a140Conditions32G = a140Conditions32.get()
+		a140Conditions42G = a140Conditions42.get()
+		a140Conditions52G = a140Conditions52.get()
+		a140Construction2G = a140Construction2.get()
+		a140Hydrant2G = a140Hydrant2.get()
+		a140FireSt2G = a140FireSt2.get()
+		a140PROTCL2G = a140PROTCL2.get()
+		a140Stories2G = a140Stories2.get()
+		a140YearB2G = a140YearB2.get()
+		a140TotalArea2G = a140TotalArea2.get()
+		a140WiringUpd2G = a140WiringUpd2.get()
+		a140PlumbUpd2G = a140PlumbUpd2.get()
+		a140RoofUpd2G = a140RoofUpd2.get()
+		a140HeatUpd2G = a140HeatUpd2.get()
+		a140RoofType2G = a140RoofType2.get()
+		a140Occupancy2G = a140Occupancy2.get()
+		a140Burglar2G = a140Burglar2.get()
+		a140FireProt2G = a140FireProt2.get()
+
+
+		c = canvas.Canvas('ClientForms/simple_form_overlay2.pdf')
+
+		c.setFont("Helvetica", 8)
+
+
+		#mycanvas.showPage()
+
+		c.drawString(312, 684, appNameG)
+
+		c.drawString(26, 576, a140SubjectOfIns11G)
+		c.drawString(26, 552, a140SubjectOfIns21G)
+		c.drawString(26, 528, a140SubjectOfIns31G)
+		c.drawString(26, 504, a140SubjectOfIns41G)
+		c.drawString(26, 480, a140SubjectOfIns51G)
+		c.drawString(143, 576, a140Amount11G)
+		c.drawString(143, 552, a140Amount21G)
+		c.drawString(143, 528, a140Amount31G)
+		c.drawString(143, 504, a140Amount41G)
+		c.drawString(143, 480, a140Amount51G)
+		c.drawString(213, 576, a140Coins11G)
+		c.drawString(213, 552, a140Coins21G)
+		c.drawString(213, 528, a140Coins31G)
+		c.drawString(213, 504, a140Coins41G)
+		c.drawString(213, 480, a140Coins51G)
+		c.drawString(240, 576, a140Valuation11G)
+		c.drawString(240, 552, a140Valuation21G)
+		c.drawString(240, 528, a140Valuation31G)
+		c.drawString(240, 504, a140Valuation41G)
+		c.drawString(240, 480, a140Valuation51G)
+		c.drawString(265, 576, a140Cause11G)
+		c.drawString(265, 552, a140Cause21G)
+		c.drawString(265, 528, a140Cause31G)
+		c.drawString(265, 504, a140Cause41G)
+		c.drawString(265, 480, a140Cause51G)
+		c.drawString(330, 576, a140INfGuard11G)
+		c.drawString(330, 552, a140INfGuard21G)
+		c.drawString(330, 528, a140INfGuard31G)
+		c.drawString(330, 504, a140INfGuard41G)
+		c.drawString(330, 480, a140INfGuard51G)
+		c.drawString(365, 576, a140Ded11G)
+		c.drawString(365, 552, a140Ded21G)
+		c.drawString(365, 528, a140Ded31G)
+		c.drawString(365, 504, a140Ded41G)
+		c.drawString(365, 480, a140Ded51G)
+		c.drawString(455, 576, a140Conditions11G)
+		c.drawString(455, 552, a140Conditions21G)
+		c.drawString(455, 528, a140Conditions31G)
+		c.drawString(455, 504, a140Conditions41G)
+		c.drawString(455, 480, a140Conditions51G)
+		c.drawString(24, 317, a140Construction1G)
+		c.drawString(146, 315, a140Hydrant1G)
+		c.drawString(190, 315, a140FireSt1G)
+		c.drawString(383, 317, a140PROTCL1G)
+		c.drawString(420, 317, a140Stories1G)
+		c.drawString(490, 317, a140YearB1G)
+		c.drawString(530, 317, a140TotalArea1G)
+		c.drawString(80, 289, a140WiringUpd1G)
+		c.drawString(170, 289, a140PlumbUpd1G)
+		c.drawString(80, 276, a140RoofUpd1G)
+		c.drawString(170, 276, a140HeatUpd1G)
+		c.drawString(286, 292, a140RoofType1G)
+		c.drawString(362, 292, a140Occupancy1G)
+		c.drawString(23, 185, a140Burglar1G)
+		c.drawString(23, 137, a140FireProt1G)
+
+		c.showPage()
+		c.setFont("Helvetica", 8)
+
+		c.drawString(26, 696, a140SubjectOfIns12G)
+		c.drawString(26, 672, a140SubjectOfIns22G)
+		c.drawString(26, 648, a140SubjectOfIns32G)
+		c.drawString(26, 624, a140SubjectOfIns42G)
+		c.drawString(26, 600, a140SubjectOfIns52G)
+		c.drawString(143, 696, a140Amount12G)
+		c.drawString(143, 672, a140Amount22G)
+		c.drawString(143, 648, a140Amount32G)
+		c.drawString(143, 624, a140Amount42G)
+		c.drawString(143, 600, a140Amount52G)
+		c.drawString(213, 696, a140Coins12G)
+		c.drawString(213, 672, a140Coins22G)
+		c.drawString(213, 648, a140Coins32G)
+		c.drawString(213, 624, a140Coins42G)
+		c.drawString(213, 600, a140Coins52G)
+		c.drawString(240, 696, a140Valuation12G)
+		c.drawString(240, 672, a140Valuation22G)
+		c.drawString(240, 648, a140Valuation32G)
+		c.drawString(240, 624, a140Valuation42G)
+		c.drawString(240, 600, a140Valuation52G)
+		c.drawString(265, 696, a140Cause12G)
+		c.drawString(265, 672, a140Cause22G)
+		c.drawString(265, 648, a140Cause32G)
+		c.drawString(265, 624, a140Cause42G)
+		c.drawString(265, 600, a140Cause52G)
+		c.drawString(330, 696, a140INfGuard12G)
+		c.drawString(330, 672, a140INfGuard22G)
+		c.drawString(330, 648, a140INfGuard32G)
+		c.drawString(330, 624, a140INfGuard42G)
+		c.drawString(330, 600, a140INfGuard52G)
+		c.drawString(365, 696, a140Ded12G)
+		c.drawString(365, 672, a140Ded22G)
+		c.drawString(365, 648, a140Ded32G)
+		c.drawString(365, 624, a140Ded42G)
+		c.drawString(365, 600, a140Ded52G)
+		c.drawString(455, 696, a140Conditions12G)
+		c.drawString(455, 672, a140Conditions22G)
+		c.drawString(455, 648, a140Conditions32G)
+		c.drawString(455, 624, a140Conditions42G)
+		c.drawString(455, 600, a140Conditions52G)
+
+		c.drawString(24, 437, a140Construction2G)
+		c.drawString(146, 435, a140Hydrant2G)
+		c.drawString(190, 435, a140FireSt2G)
+		c.drawString(383, 437, a140PROTCL2G)
+		c.drawString(420, 437, a140Stories2G)
+		c.drawString(490, 437, a140YearB2G)
+		c.drawString(530, 437, a140TotalArea2G)
+		c.drawString(80, 409, a140WiringUpd2G)
+		c.drawString(170, 409, a140PlumbUpd2G)
+		c.drawString(80, 396, a140RoofUpd2G)
+		c.drawString(170, 396, a140HeatUpd2G)
+		c.drawString(286, 412, a140RoofType2G)
+		c.drawString(362, 412, a140Occupancy2G)
+		c.drawString(23, 305, a140Burglar2G)
+		c.drawString(23, 257, a140FireProt2G)
+
+
+		
+
+
+		c.save()
+
+
 	def merge_pdfs(form_pdf, overlay_pdf, output):
 	    """
 	    Merge the specified fillable form PDF with the 
@@ -2286,21 +2686,33 @@ def generateForms():
 	    writer = pdfrw.PdfWriter()
 	    writer.write(output, form)
 	    
-	    
+	   
+	a125FileName = appName.get() + ' - Acord125.pdf'
+	a126FileName = appName.get() + ' - Acord126.pdf'
+	a140FileName = appName.get() + ' - Acord140.pdf'
+
+
 	if __name__ == '__main__':
 	    create_overlay()
 	    merge_pdfs('Forms/acord-125p.pdf', 
-	               'Forms/simple_form_overlay.pdf', 
-	               'merged_form.pdf')
+	               'ClientForms/simple_form_overlay.pdf', 
+	               'ClientForms/' + a125FileName)
 
 	if __name__ == '__main__':
 	    create_overlay1()
 	    merge_pdfs('Forms/acord-126p.pdf', 
-	               'Forms/simple_form_overlay1.pdf', 
-	               'merged_form1.pdf')
+	               'ClientForms/simple_form_overlay1.pdf', 
+	               'ClientForms/' + a126FileName)
 
-	os.remove('Forms/simple_form_overlay.pdf')
-	os.remove('Forms/simple_form_overlay1.pdf')
+	if __name__ == '__main__':
+	    create_overlay2()
+	    merge_pdfs('Forms/acord-140p.pdf', 
+	               'ClientForms/simple_form_overlay2.pdf', 
+	               'ClientForms/' + a140FileName)
+
+	os.remove('ClientForms/simple_form_overlay.pdf')
+	os.remove('ClientForms/simple_form_overlay1.pdf')
+	os.remove('ClientForms/simple_form_overlay2.pdf')
 
 
 buttons = ttk.Frame(window)
